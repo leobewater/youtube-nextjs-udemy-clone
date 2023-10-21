@@ -10,7 +10,6 @@ Video: https://www.youtube.com/watch?v=Big_aFLmekI&t=538s&ab_channel=CodeWithAnt
 > npx shadcn-ui@latest add
 
 > npm i @clerk/nextjs
-> npm i next-themes
 
 > npm i -D prisma
 > npm i @prisma/client
