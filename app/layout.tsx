@@ -8,8 +8,8 @@ import { ThemeProvider } from "@/components/providers/theme-provider";
 const font = Open_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Team Chat Application",
-  description: "Chat app",
+  title: "LMS Platform",
+  description: "Learning Online Courses App",
 };
 
 export default function RootLayout({
