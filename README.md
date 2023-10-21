@@ -19,4 +19,8 @@ Video: https://www.youtube.com/watch?v=Big_aFLmekI&t=538s&ab_channel=CodeWithAnt
 > npx prisma db push
 > npx prisma studio
 
+> npm i axios
+> @hookform/resolvers
+> npm i zod
+
 ```
