@@ -1,14 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 import { withUt } from "uploadthing/tw";
 
-module.exports = {
+module.exports = withUt({
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx,mdx}',
-    './src/**/*.{ts,tsx,mdx}',
-	],
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx,mdx}",
+    "./src/**/*.{ts,tsx,mdx}",
+  ],
   theme: {
     container: {
       center: true,
@@ -75,4 +75,4 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-}
+});
