@@ -1,11 +1,12 @@
 import { CategoryForm } from "@/app/(dashboard)/(routes)/teacher/courses/[courseId]/_components/category-form";
 import { DescriptionForm } from "@/app/(dashboard)/(routes)/teacher/courses/[courseId]/_components/description-form";
 import { ImageForm } from "@/app/(dashboard)/(routes)/teacher/courses/[courseId]/_components/image-form";
+import { PriceForm } from "@/app/(dashboard)/(routes)/teacher/courses/[courseId]/_components/price-form";
 import { TitleForm } from "@/app/(dashboard)/(routes)/teacher/courses/[courseId]/_components/title-form";
 import { IconBadge } from "@/components/icon-badge";
 import { db } from "@/lib/db";
 import { auth } from "@clerk/nextjs";
-import { LayoutDashboard } from "lucide-react";
+import { CircleDollarSign, LayoutDashboard, ListChecks } from "lucide-react";
 import { redirect } from "next/navigation";
 
 const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
@@ -24,12 +25,14 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
     return redirect("/");
   }
 
+  // Get all categories for select options
   const categories = await db.category.findMany({
     orderBy: {
       name: "asc",
     },
   });
 
+  // Check completed required fields
   const requiredFields = [
     course.title,
     course.description,
@@ -37,7 +40,6 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
     course.price,
     course.categoryId,
   ];
-
   const totalFields = requiredFields.length;
   const completedFields = requiredFields.filter(Boolean).length; // get fields not null
   const completionText = `(${completedFields}/${totalFields})`;
@@ -69,6 +71,22 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
               value: category.id,
             }))}
           />
+        </div>
+        <div className="space-y-6">
+          <div className="">
+            <div className="flex items-center gap-x-2">
+              <IconBadge icon={ListChecks} />
+              <h2 className="text-xl">Course chapters</h2>
+            </div>
+            <div className="">TODO: Chapters</div>
+          </div>
+          <div>
+            <div className="flex items-center gap-x-2">
+              <IconBadge icon={CircleDollarSign} />
+              <h2 className="text-xl">Sell your course</h2>
+            </div>
+            <PriceForm initialData={course} courseId={course.id} />
+          </div>
         </div>
       </div>
     </div>
