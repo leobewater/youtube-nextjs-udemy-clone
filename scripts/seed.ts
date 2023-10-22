@@ -4,6 +4,12 @@ const database = new PrismaClient();
 
 async function main() {
   try {
+    const categories = await database.category.findMany();
+    if (categories.length !== 0) {
+      console.log("Categories table is not empty");
+      return;
+    }
+
     await database.category.createMany({
       data: [
         { name: "Computer Science" },
