@@ -27,5 +27,6 @@ Video: https://www.youtube.com/watch?v=Big_aFLmekI&t=538s&ab_channel=CodeWithAnt
 # uplodathing.com
 > npm install uploadthing @uploadthing/react
 
-
+# db seeding, to run
+> node scripts/seed.ts
 ```
