@@ -29,4 +29,6 @@ Video: https://www.youtube.com/watch?v=Big_aFLmekI&t=538s&ab_channel=CodeWithAnt
 
 # db seeding, to run
 > node scripts/seed.ts
+
+> npm i @hello-pangea/dnd
 ```
