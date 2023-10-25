@@ -32,4 +32,8 @@ Video: https://www.youtube.com/watch?v=Big_aFLmekI&t=538s&ab_channel=CodeWithAnt
 
 > npm i @hello-pangea/dnd
 > npm i react-quill
+
+# mux.com
+> npm i @mux/mux-node
+> npm i @mux/mux-player-react
 ```
