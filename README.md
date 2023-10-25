@@ -39,4 +39,6 @@ Video: https://www.youtube.com/watch?v=Big_aFLmekI&t=538s&ab_channel=CodeWithAnt
 
 > npm i react-confetti
 > npm i zustand
+
+> npm i @tanstack/react-table
 ```
