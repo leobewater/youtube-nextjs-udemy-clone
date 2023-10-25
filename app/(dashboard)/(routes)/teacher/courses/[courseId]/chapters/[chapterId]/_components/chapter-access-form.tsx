@@ -19,8 +19,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { Chapter } from "@prisma/client";
 import { useRouter } from "next/navigation";
-import { Editor } from "@/components/editor";
-import { Preview } from "@/components/preview";
 import { Checkbox } from "@/components/ui/checkbox";
 
 interface ChapterAccessFormProps {
