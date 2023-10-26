@@ -6,14 +6,17 @@ import { redirect } from "next/navigation";
 
 interface CourseSidebarProps {
   course: Course & {
-    chapters: Chapter & {
+    chapters: (Chapter & {
       userProgress: UserProgress[] | null;
-    };
+    })[];
   };
-  progressCount: number | null;
+  progressCount: number;
 }
 
-export const CourseSidebar = async ({ course }: CourseSidebarProps) => {
+export const CourseSidebar = async ({
+  course,
+  progressCount,
+}: CourseSidebarProps) => {
   const { userId } = auth();
   if (!userId) {
     return redirect("/");
@@ -42,6 +45,7 @@ export const CourseSidebar = async ({ course }: CourseSidebarProps) => {
             id={chapter.id}
             label={chapter.title}
             isCompleted={!!chapter.userProgress?.[0]?.isCompleted}
+            courseId={course.id}
             isLocked={!chapter.isFree && !purchase}
           />
         ))}
