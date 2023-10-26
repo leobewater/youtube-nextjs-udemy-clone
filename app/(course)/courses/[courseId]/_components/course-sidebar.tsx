@@ -1,7 +1,11 @@
-import { Course } from "@prisma/client";
+import { Chapter, Course, UserProgress } from "@prisma/client";
 
 interface CourseSidebarProps {
-  course: Course;
+  course: Course & {
+    chapters: Chapter & {
+      userProgress: UserProgress[] | null;
+    };
+  };
   progressCount: number | null;
 }
 
