@@ -1,4 +1,5 @@
 import { getChapter } from "@/actions/get-chapter";
+import { CourseEnrollButton } from "@/app/(course)/courses/[courseId]/chapters/[chapterId]/_components/course-enroll-button";
 import { VideoPlayer } from "@/app/(course)/courses/[courseId]/chapters/[chapterId]/_components/video-player";
 import { Banner } from "@/components/banner";
 import { auth } from "@clerk/nextjs";
@@ -57,6 +58,19 @@ const ChapterIdPage = async ({
             isLocked={isLocked}
             completeOnEnd={completeOnEnd}
           />
+        </div>
+        <div>
+          <div className="p-4 flex flex-col md:flex-row items-center justify-between">
+            <h2 className="text-2xl font-semibold mb-2">{chapter.title}</h2>
+            {purchase ? (
+              <div>{/* TODO: add courseProgress button*/}</div>
+            ) : (
+              <CourseEnrollButton
+                courseId={params.courseId}
+                price={course.price!}
+              />
+            )}
+          </div>
         </div>
       </div>
     </div>
