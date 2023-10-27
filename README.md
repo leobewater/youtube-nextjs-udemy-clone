@@ -51,4 +51,6 @@ Video: https://www.youtube.com/watch?v=Big_aFLmekI&t=538s&ab_channel=CodeWithAnt
 > stripe login
 > stripe listen --forward-to localhost:3000/api/webhook
 # copy that secret to .env
+
+> npm i recharts
 ```
