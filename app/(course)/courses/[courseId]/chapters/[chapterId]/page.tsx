@@ -2,7 +2,10 @@ import { getChapter } from "@/actions/get-chapter";
 import { CourseEnrollButton } from "@/app/(course)/courses/[courseId]/chapters/[chapterId]/_components/course-enroll-button";
 import { VideoPlayer } from "@/app/(course)/courses/[courseId]/chapters/[chapterId]/_components/video-player";
 import { Banner } from "@/components/banner";
+import { Preview } from "@/components/preview";
+import { Separator } from "@/components/ui/separator";
 import { auth } from "@clerk/nextjs";
+import { File } from "lucide-react";
 import { redirect } from "next/navigation";
 
 const ChapterIdPage = async ({
@@ -71,6 +74,28 @@ const ChapterIdPage = async ({
               />
             )}
           </div>
+          <Separator />
+          <div>
+            <Preview value={chapter.description!} />
+          </div>
+          {!!attachments.length && (
+            <>
+              <Separator />
+              <div className="p-4">
+                {attachments.map((attachment) => (
+                  <a
+                    href={attachment.url}
+                    key={attachment.id}
+                    target="_blank"
+                    className="flex items-centers p-3 w-full bg-sky-200 border text-sky-700 rounded-md hover:underline"
+                  >
+                    <File className="" />
+                    <p className="line-clamp-1">{attachment.name}</p>
+                  </a>
+                ))}
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>

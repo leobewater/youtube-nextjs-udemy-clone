@@ -47,6 +47,7 @@ export const getChapter = async ({
     let attachments: Attachment[] = [];
     let nextChapter: Chapter | null = null;
 
+    // show attachment only the course is being purchased
     if (purchase) {
       attachments = await db.attachment.findMany({
         where: {
