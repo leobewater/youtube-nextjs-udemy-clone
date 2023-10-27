@@ -13,13 +13,13 @@ interface VideoPlayerProps {
   playbackId: string;
   courseId: string;
   chapterId: string;
-  nextChapterId: string;
+  nextChapterId?: string;
   isLocked: boolean;
   completeOnEnd: boolean;
   title: string;
 }
 
-export const VideoPlayer = async ({
+export const VideoPlayer = ({
   playbackId,
   courseId,
   chapterId,

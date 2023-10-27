@@ -1,6 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { formatPrice } from "@/lib/format";
-import { boolean } from "zod";
 
 interface DataCardProps {
   value: number;

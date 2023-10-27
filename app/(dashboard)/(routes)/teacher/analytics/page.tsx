@@ -1,4 +1,5 @@
 import { getAnalytics } from "@/actions/get-analytics";
+import { Chart } from "@/app/(dashboard)/(routes)/teacher/analytics/_components/chart";
 import { DataCard } from "@/app/(dashboard)/(routes)/teacher/analytics/_components/data-card";
 import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
@@ -17,6 +18,7 @@ const AnalyticsPage = async () => {
         <DataCard label="Total Revenue" value={totalRevenue} shouldFormat />
         <DataCard label="Total Sales" value={totalSales} />
       </div>
+      <Chart data={data} />
     </div>
   );
 };
