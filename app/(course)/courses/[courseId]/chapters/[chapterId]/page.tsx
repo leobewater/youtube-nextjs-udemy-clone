@@ -1,7 +1,9 @@
 import { getChapter } from "@/actions/get-chapter";
 import { CourseEnrollButton } from "@/app/(course)/courses/[courseId]/chapters/[chapterId]/_components/course-enroll-button";
+import { CourseProgressButton } from "@/app/(course)/courses/[courseId]/chapters/[chapterId]/_components/course-progress-button";
 import { VideoPlayer } from "@/app/(course)/courses/[courseId]/chapters/[chapterId]/_components/video-player";
 import { Banner } from "@/components/banner";
+import { CourseProgress } from "@/components/course-progress";
 import { Preview } from "@/components/preview";
 import { Separator } from "@/components/ui/separator";
 import { auth } from "@clerk/nextjs";
@@ -66,7 +68,12 @@ const ChapterIdPage = async ({
           <div className="p-4 flex flex-col md:flex-row items-center justify-between">
             <h2 className="text-2xl font-semibold mb-2">{chapter.title}</h2>
             {purchase ? (
-              <div>{/* TODO: add courseProgress button*/}</div>
+              <CourseProgressButton
+                chapterId={params.chapterId}
+                courseId={params.courseId}
+                nextChapterId={nextChapter?.id}
+                isCompleted={!!userProgress?.isCompleted}
+              />
             ) : (
               <CourseEnrollButton
                 courseId={params.courseId}
