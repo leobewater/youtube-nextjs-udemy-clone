@@ -18,12 +18,10 @@ export async function DELETE(
       return new NextResponse("Unauthorized", { status: 401 });
     }
 
-    const { courseId } = params;
-
     const course = await db.course.findUnique({
       where: {
-        id: courseId,
-        userId,
+        id: params.courseId,
+        userId: userId,
       },
       include: {
         chapters: {
